@@ -20,20 +20,20 @@ const BackgroundGrid = ({
 	...props
 }: BackgroundGridProps) => {
 	const [windowWidth, windowHeight] = useWindowSize();
-	const gridHeight = windowHeight / blockHeight + 1;
-	const gridWidth = windowWidth / blockWidth + 1;
+	const gridHeight = Math.ceil(windowHeight / blockHeight);
+	const gridWidth = Math.ceil(windowWidth / blockWidth);
 	const gridArray = Array.from({ length: height ?? gridHeight }, () =>
 		Array.from({ length: width ?? gridWidth }),
 	);
 
 	return (
-		<div className='absolute left-0 top-0 -z-10 flex max-h-full max-w-full flex-col overflow-hidden'>
+		<div className='radial-g absolute left-0 top-0 flex max-h-full max-w-full flex-col overflow-hidden'>
 			{gridArray.map((row, i) => (
 				<div key={i} className='flex'>
 					{row.map((_, j) => (
 						<div
 							key={`${i}_${j}`}
-							className='border'
+							className='border border-black/10 bg-blue-500/10 transition-all hover:bg-slate-500'
 							style={{
 								width: blockWidth,
 								height: blockHeight,

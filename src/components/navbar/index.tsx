@@ -3,9 +3,9 @@ import NavLink from './atoms/navlink';
 
 const Navbar = () => {
 	return (
-		<header className='flex h-14 items-center justify-between bg-background px-8 shadow-md transition-all'>
+		<header className='z-10 flex h-14 items-center justify-between bg-background px-8 shadow-md transition-all'>
 			<p className='text-lg font-semibold'>Aldiery Gonzalez</p>
-			<div className='hidden space-x-4 md:flex'>
+			<div className='z-10 hidden space-x-4 md:flex'>
 				<nav className='space-x-4' aria-labelledby='primary-navigation'>
 					<NavLink href='/'>Home</NavLink>
 					<NavLink href='/notHome'>notHome</NavLink>
