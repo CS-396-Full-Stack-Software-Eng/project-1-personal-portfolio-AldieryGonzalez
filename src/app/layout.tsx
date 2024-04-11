@@ -1,9 +1,13 @@
 import Navbar from '@/components/navbar';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Poppins } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
+// const poppins = Poppins({
+// 	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+// 	subsets: ['latin'],
+// });
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -18,10 +22,10 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={inter.className}>
-				<main className='flex min-h-screen flex-col items-center justify-between p-24'>
+				<div className='flex min-h-svh flex-col'>
 					<Navbar />
-					{children}
-				</main>
+					<main className='grow p-12'>{children}</main>
+				</div>
 			</body>
 		</html>
 	);
