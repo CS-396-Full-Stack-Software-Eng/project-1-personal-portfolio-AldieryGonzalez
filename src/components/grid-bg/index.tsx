@@ -1,6 +1,7 @@
 'use client';
 
 import { useParentSize } from '@/hooks/useParentSize';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 
 type BackgroundGridProps = {
@@ -33,13 +34,19 @@ const BackgroundGrid = ({
 			{gridArray.map((row, i) => (
 				<div key={i} className='flex'>
 					{row.map((_, j) => (
-						<div
+						<motion.div
 							key={`${i}_${j}`}
-							className='border border-black/10 bg-blue-500/10 transition-all hover:bg-slate-500'
+							className='border border-black/10'
+							initial={{ backgroundColor: 'rgba(251,247,245)' }}
+							whileHover={{
+								backgroundColor: 'rgba(0, 0, 0, 1)',
+							}}
+							transition={{ ease: 'easeOut', duration: 1 }}
 							style={{
 								width: blockWidth,
 								height: blockHeight,
-							}}></div>
+							}}
+						/>
 					))}
 				</div>
 			))}

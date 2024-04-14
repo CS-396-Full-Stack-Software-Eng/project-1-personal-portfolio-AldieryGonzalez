@@ -5,10 +5,21 @@ type MyThingsProps = {};
 const MyThings = ({ ...props }: MyThingsProps) => {
 	return (
 		<div className='z-10 mt-16 flex flex-wrap gap-6'>
-			<ThingCard />
-			<ThingCard />
-			<ThingCard />
-			<ThingCard />
+			<ThingCard title='Designer'>
+				I like to make fun designs and stuff
+			</ThingCard>
+			<ThingCard title='Designer'>
+				I like to make fun designs and stuff
+			</ThingCard>
+			<ThingCard title='Designer'>
+				I like to make fun designs and stuff
+			</ThingCard>
+			<ThingCard title='Designer'>
+				I like to make fun designs and stuff
+			</ThingCard>
+			<ThingCard title='Designer'>
+				I like to make fun designs and stuff
+			</ThingCard>
 		</div>
 	);
 };
