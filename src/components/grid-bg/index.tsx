@@ -1,7 +1,7 @@
 'use client';
 
-import { useWindowSize } from '@/hooks/useWindowSize';
-import { useLayoutEffect, useState } from 'react';
+import { useParentSize } from '@/hooks/useParentSize';
+import { useRef } from 'react';
 
 type BackgroundGridProps = {
 	blockWidth?: number;
@@ -19,15 +19,17 @@ const BackgroundGrid = ({
 	fullBackground = true,
 	...props
 }: BackgroundGridProps) => {
-	const [windowWidth, windowHeight] = useWindowSize();
-	const gridHeight = Math.ceil(windowHeight / blockHeight);
-	const gridWidth = Math.ceil(windowWidth / blockWidth);
+	const ref = useRef<HTMLDivElement>(null);
+	const [parentWidth, parentHeight] = useParentSize(ref, 2);
+	const gridHeight = Math.ceil(parentHeight / blockHeight);
+	const gridWidth = Math.ceil(parentWidth / blockWidth);
 	const gridArray = Array.from({ length: height ?? gridHeight }, () =>
 		Array.from({ length: width ?? gridWidth }),
 	);
-
 	return (
-		<div className='radial-g absolute left-0 top-0 flex max-h-full max-w-full flex-col overflow-hidden'>
+		<div
+			className='radial-g absolute left-0 top-0 flex max-h-full max-w-full flex-col overflow-hidden'
+			ref={ref}>
 			{gridArray.map((row, i) => (
 				<div key={i} className='flex'>
 					{row.map((_, j) => (

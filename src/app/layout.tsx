@@ -24,7 +24,7 @@ export default function RootLayout({
 			<body className={inter.className}>
 				<div className='flex min-h-svh flex-col'>
 					<Navbar />
-					<main className='grow p-12'>{children}</main>
+					<main className='relative grow p-12'>{children}</main>
 				</div>
 			</body>
 		</html>
