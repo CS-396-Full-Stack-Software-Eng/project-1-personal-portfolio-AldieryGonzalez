@@ -8,13 +8,13 @@ const MyThings = ({ ...props }: MyThingsProps) => {
 			<ThingCard title='Designer'>
 				I like to make fun designs and stuff
 			</ThingCard>
-			<ThingCard title='Designer'>
+			<ThingCard title='Creator'>
 				I like to make fun designs and stuff
 			</ThingCard>
-			<ThingCard title='Designer'>
+			<ThingCard title='Developer'>
 				I like to make fun designs and stuff
 			</ThingCard>
-			<ThingCard title='Designer'>
+			<ThingCard title='Fun Haver'>
 				I like to make fun designs and stuff
 			</ThingCard>
 			<ThingCard title='Designer'>

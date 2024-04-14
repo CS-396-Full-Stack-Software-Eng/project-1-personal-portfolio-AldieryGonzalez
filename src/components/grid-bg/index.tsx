@@ -41,7 +41,7 @@ const BackgroundGrid = ({
 							whileHover={{
 								backgroundColor: 'rgba(0, 0, 0, 1)',
 							}}
-							transition={{ ease: 'easeOut', duration: 1 }}
+							transition={{ ease: 'easeOut', duration: 0.25 }}
 							style={{
 								width: blockWidth,
 								height: blockHeight,
