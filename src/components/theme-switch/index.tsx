@@ -4,6 +4,7 @@ import { Moon, Sun, SunMoon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import ThemeSwitchButton from './atoms/switch-button';
 
 export default function ThemeSwitch() {
 	const [mounted, setMounted] = useState(false);
@@ -14,10 +15,15 @@ export default function ThemeSwitch() {
 	if (!mounted) return <SunMoon />;
 
 	if (resolvedTheme === 'dark') {
-		return <Moon onClick={() => setTheme('light')} />;
+		return (
+			<ThemeSwitchButton onClick={() => setTheme('light')}>
+				<Moon />
+			</ThemeSwitchButton>
+		);
 	}
-
-	if (resolvedTheme === 'light') {
-		return <Sun onClick={() => setTheme('dark')} />;
-	}
+	return (
+		<ThemeSwitchButton onClick={() => setTheme('dark')}>
+			<Sun />
+		</ThemeSwitchButton>
+	);
 }
