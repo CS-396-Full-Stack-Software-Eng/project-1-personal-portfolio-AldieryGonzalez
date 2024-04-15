@@ -1,4 +1,5 @@
 import Navbar from '@/components/navbar';
+import { Providers } from '@/providers';
 import type { Metadata } from 'next';
 import { Inter, Poppins } from 'next/font/google';
 import './globals.css';
@@ -20,12 +21,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>
+		<html lang='en' suppressHydrationWarning>
 			<body className={inter.className}>
-				<div className='flex min-h-svh flex-col'>
-					<Navbar />
-					<main className='grow p-12'>{children}</main>
-				</div>
+				<Providers>
+					<div className='flex min-h-svh flex-col'>
+						<Navbar />
+						<main className='grow p-12'>{children}</main>
+					</div>
+				</Providers>
 			</body>
 		</html>
 	);

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ThemeSwitch from '../theme-switch';
 import NavLink from './atoms/navlink';
 
 const Navbar = () => {
@@ -22,6 +23,7 @@ const Navbar = () => {
 						Help
 					</Link>
 				</nav>
+				<ThemeSwitch />
 			</div>
 		</header>
 	);
