@@ -1,7 +1,11 @@
 export default function Contact() {
 	return (
 		<div className='flex max-h-full flex-col'>
-			<h1 className='text-4xl sm:text-6xl'>Contact Me</h1>
+			<div className='bg-red-400 bg-clip-content'>
+				<h1 className='bg-blue-500 bg-clip-content text-4xl sm:text-6xl'>
+					Contact Me
+				</h1>
+			</div>
 			<p className='text-lg'>
 				I&apos;d love to hear from you about ideas!
 			</p>

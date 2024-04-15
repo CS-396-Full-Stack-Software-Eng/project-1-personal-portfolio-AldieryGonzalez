@@ -1,4 +1,5 @@
 import { SiGithub, SiLinkedin } from '@icons-pack/react-simple-icons';
+import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import NavLink from './atoms/navlink';
 
@@ -23,6 +24,9 @@ const Navbar = () => {
 					</Link>
 				</nav>
 			</div>
+			<button className='block sm:hidden'>
+				<Menu />
+			</button>
 		</header>
 	);
 };
