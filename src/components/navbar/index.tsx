@@ -1,3 +1,5 @@
+import { SiGithub, SiLinkedin } from '@icons-pack/react-simple-icons';
+import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import ThemeSwitch from '../theme-switch';
 import NavLink from './atoms/navlink';
@@ -6,25 +8,27 @@ const Navbar = () => {
 	return (
 		<header className='z-10 flex h-14 items-center justify-between bg-background px-8 shadow-md transition-all'>
 			<p className='text-lg font-semibold'>Aldiery Gonzalez</p>
-			<div className='z-10 hidden space-x-4 md:flex'>
+			<div className='z-10 hidden space-x-4 sm:flex'>
 				<nav className='space-x-4' aria-labelledby='primary-navigation'>
 					<NavLink href='/'>Home</NavLink>
-					<NavLink href='/notHome'>notHome</NavLink>
-					<NavLink href='/test'>test</NavLink>
-					<NavLink href='/bigTest'>bigTest</NavLink>
+					<NavLink href='/projects'>Projects</NavLink>
+					<NavLink href='/contact'>Contact</NavLink>
 				</nav>
 				<nav
-					className='space-x-4'
+					className='flex space-x-4'
 					aria-labelledby='external-navigation'>
 					<Link href={'https://github.com/AldieryGonzalez'}>
-						Help
+						<SiGithub />
 					</Link>
 					<Link href={'https://www.linkedin.com/in/aldierygonzalez/'}>
-						Help
+						<SiLinkedin />
 					</Link>
 				</nav>
 				<ThemeSwitch />
 			</div>
+			<button className='block sm:hidden'>
+				<Menu />
+			</button>
 		</header>
 	);
 };

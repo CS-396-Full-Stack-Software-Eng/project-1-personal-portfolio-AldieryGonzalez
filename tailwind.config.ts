@@ -1,8 +1,14 @@
 import type { Config } from 'tailwindcss';
+import plugin from 'tailwindcss/plugin';
 
 const config = {
-	darkMode: 'class',
-	content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+	darkMode: ['class'],
+	content: [
+		'./pages/**/*.{ts,tsx}',
+		'./components/**/*.{ts,tsx}',
+		'./app/**/*.{ts,tsx}',
+		'./src/**/*.{ts,tsx}',
+	],
 	prefix: '',
 	theme: {
 		container: {
@@ -13,6 +19,11 @@ const config = {
 			},
 		},
 		extend: {
+			textShadow: {
+				sm: '0 1px 2px var(--tw-shadow-color)',
+				DEFAULT: '0 2px 4px var(--tw-shadow-color)',
+				lg: '0 8px 16px var(--tw-shadow-color)',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -69,7 +80,19 @@ const config = {
 			},
 		},
 	},
-	plugins: [require('tailwindcss-animate')],
+	plugins: [
+		require('tailwindcss-animate'),
+		plugin(function ({ matchUtilities, theme }) {
+			matchUtilities(
+				{
+					'text-shadow': (value) => ({
+						textShadow: value,
+					}),
+				},
+				{ values: theme('textShadow') },
+			);
+		}),
+	],
 } satisfies Config;
 
 export default config;

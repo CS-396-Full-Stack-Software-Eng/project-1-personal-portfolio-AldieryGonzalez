@@ -1,7 +1,8 @@
 'use client';
 
-import { useWindowSize } from '@/hooks/useWindowSize';
-import { useLayoutEffect, useState } from 'react';
+import { useParentSize } from '@/hooks/useParentSize';
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
 
 type BackgroundGridProps = {
 	blockWidth?: number;
@@ -19,25 +20,33 @@ const BackgroundGrid = ({
 	fullBackground = true,
 	...props
 }: BackgroundGridProps) => {
-	const [windowWidth, windowHeight] = useWindowSize();
-	const gridHeight = Math.ceil(windowHeight / blockHeight);
-	const gridWidth = Math.ceil(windowWidth / blockWidth);
+	const ref = useRef<HTMLDivElement>(null);
+	const [parentWidth, parentHeight] = useParentSize(ref, 2);
+	const gridHeight = Math.ceil(parentHeight / blockHeight);
+	const gridWidth = Math.ceil(parentWidth / blockWidth);
 	const gridArray = Array.from({ length: height ?? gridHeight }, () =>
 		Array.from({ length: width ?? gridWidth }),
 	);
-
 	return (
-		<div className='absolute left-0 top-0 flex max-h-full max-w-full flex-col overflow-hidden'>
+		<div
+			className='radial-g absolute left-0 top-0 flex max-h-full max-w-full flex-col overflow-hidden'
+			ref={ref}>
 			{gridArray.map((row, i) => (
 				<div key={i} className='flex'>
 					{row.map((_, j) => (
-						<div
+						<motion.div
 							key={`${i}_${j}`}
-							className='border-r border-t bg-blue-500/10 transition-all hover:bg-slate-500'
+							className='border border-black/10'
+							initial={{ backgroundColor: 'rgba(251,247,245)' }}
+							whileHover={{
+								backgroundColor: 'rgba(0, 0, 0, 1)',
+							}}
+							transition={{ ease: 'easeOut', duration: 0.25 }}
 							style={{
 								width: blockWidth,
 								height: blockHeight,
-							}}></div>
+							}}
+						/>
 					))}
 				</div>
 			))}
