@@ -20,7 +20,7 @@ function GridButton({
 	const { resolvedTheme } = useTheme();
 	return (
 		<motion.button
-			className='cursor-pointer border border-foreground/5 text-4xl font-bold text-primary/5 focus:z-[5] focus:outline-dotted focus:outline-4 focus:outline-red-500'
+			className='cursor-pointer border border-foreground/5 text-4xl font-bold text-primary/5 focus:z-[5]'
 			onClick={() => {
 				setSelected((prev) => {
 					if (prev.includes(buttonIndex)) {
