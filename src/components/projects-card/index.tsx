@@ -8,13 +8,13 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ reversed, ...props }: ProjectCardProps) => {
 	return (
-		<div className='group relative min-w-64 overflow-hidden rounded-lg shadow-lg'>
+		<div className='group overflow-hidden rounded-lg shadow-lg'>
 			<Link className='absolute inset-0 z-10' href='#'>
 				<span className='sr-only'>View Project</span>
 			</Link>
 			<Image
 				alt='Project 1'
-				className='h-60 w-full max-w-md object-cover transition-transform duration-300 group-hover:scale-105'
+				className='h-60 object-cover transition-transform duration-300 group-hover:scale-105'
 				height='300'
 				src='/placeholder.jpg'
 				style={{

@@ -13,9 +13,11 @@ type ThemeContextType = {
 export const ThemeContext = createContext({} as ThemeContextType);
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-	const [mode, setMode] = useState<'dark' | 'light'>(
-		localStorage.getItem('theme') as 'dark' | 'light',
-	);
+	let localTheme;
+	if (typeof window !== 'undefined') {
+		localTheme = localStorage.getItem('theme') as 'dark' | 'light';
+	}
+	const [mode, setMode] = useState<'dark' | 'light'>(localTheme ?? 'dark');
 	useLayoutEffect(() => {
 		const theme = localStorage.getItem('theme');
 		if (!theme) {
