@@ -17,6 +17,9 @@ function GridBlock({ width, height }: GridBlockProps) {
 						? 'rgba(230,230,230)'
 						: 'rgba(34, 39, 46)',
 			}}
+			animate={{
+				transition: { duration: 2 },
+			}}
 			transition={{ ease: 'easeOut', duration: 0.25 }}
 			style={{
 				width,

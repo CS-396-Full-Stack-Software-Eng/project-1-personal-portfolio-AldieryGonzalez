@@ -3,7 +3,7 @@ import MyThings from '@/components/my-things';
 
 export default function Home() {
 	return (
-		<div className='flex max-h-full flex-col items-center justify-between p-12'>
+		<div className='flex max-h-full flex-col items-center p-12'>
 			<div className='z-10 rounded-xl border bg-background p-6 shadow-md sm:p-8'>
 				<h1 className='text-2xl font-semibold sm:text-4xl'>
 					Hi, I&apos;m Aldi, a{' '}

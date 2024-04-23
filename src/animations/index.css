@@ -1,3 +1,6 @@
+:root {
+	--var: 0;
+}
 @keyframes gradient-slide {
 	0% {
 		background-size: 200% 200%;
@@ -9,5 +12,73 @@
 	100% {
 		background-size: 200% 200%;
 		background-position: 0% 50%;
+	}
+}
+
+@keyframes blob-float-1 {
+	0% {
+		background-size: 200% 200%;
+		background-position: 0% 50%;
+		translate: 40% -25%;
+		border-radius: 60% 40% 30% 70% / 100% 85% 92% 74%;
+	}
+	25% {
+		translate: 250% -150%;
+		border-radius: 20% 71% 47% 70% / 81% 15% 22% 54%;
+		rotate: 83deg;
+		scale: 1.15;
+	}
+	50% {
+		translate: -70vw -300%;
+		border-radius: 100% 75% 92% 74% / 60% 80% 30% 70%;
+		background-position: 100% 50%;
+		rotate: -deg;
+		scale: 1.05;
+	}
+	75% {
+		translate: -67% 13%;
+		border-radius: 20% 71% 47% 70% / 81% 15% 22% 54%;
+		rotate: 41deg;
+		scale: 1.15;
+	}
+	100% {
+		background-size: 200% 200%;
+		background-position: 0% 50%;
+		translate: 40% -25%;
+		border-radius: 60% 40% 30% 70% / 100% 85% 92% 74%;
+	}
+}
+@keyframes blob-float-2 {
+	0% {
+		background-size: 200% 200%;
+		background-position: 0% 50%;
+		translate: 40% 50%;
+		border-radius: 60% 40% 30% 70% / 100% 85% 92% 74%;
+	}
+	25% {
+		translate: 250% 150%;
+		border-radius: 20% 71% 47% 70% / 81% 15% 22% 54%;
+		rotate: 83deg;
+		scale: 1.15;
+	}
+	50% {
+		translate: 70vw 100%;
+		border-radius: 100% 75% 92% 74% / 60% 80% 30% 70%;
+		background-position: 100% 50%;
+		rotate: -deg;
+		scale: 1.05;
+	}
+
+	75% {
+		translate: 125% 0%;
+		border-radius: 20% 71% 47% 70% / 81% 15% 22% 54%;
+		rotate: 41deg;
+		scale: 1.15;
+	}
+	100% {
+		background-size: 200% 200%;
+		background-position: 0% 50%;
+		translate: 40% 50%;
+		border-radius: 60% 40% 30% 70% / 100% 85% 92% 74%;
 	}
 }

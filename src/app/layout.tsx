@@ -26,7 +26,7 @@ export default function RootLayout({
 				<Providers>
 					<div className='flex min-h-svh flex-col bg-background text-foreground'>
 						<Navbar />
-						<main className='relative grow text-foreground'>
+						<main className='relative flex min-h-full grow text-foreground'>
 							{children}
 						</main>
 					</div>

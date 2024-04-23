@@ -64,20 +64,15 @@ const config = {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)',
 			},
-			keyframes: {
-				'accordion-down': {
-					from: { height: '0' },
-					to: { height: 'var(--radix-accordion-content-height)' },
-				},
-				'accordion-up': {
-					from: { height: 'var(--radix-accordion-content-height)' },
-					to: { height: '0' },
-				},
+			gridTemplateColumns: {
+				'fill-200': 'repeat(auto-fill, minmax(200px, 1fr))',
+				'fill-300': 'repeat(auto-fill, minmax(300px, 1fr))',
+				'fill-400': 'repeat(auto-fill, minmax(400px, 1fr))',
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
 				'gradient-slide': 'gradient-slide 6s ease-in-out infinite',
+				'blob-float-1': 'blob-float-1 80s linear infinite',
+				'blob-float-2': 'blob-float-2 60s linear infinite',
 			},
 		},
 	},
