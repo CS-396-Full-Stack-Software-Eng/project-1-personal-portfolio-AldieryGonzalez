@@ -1,5 +1,5 @@
+import { useTheme } from '@/hooks/useTheme';
 import { motion } from 'framer-motion';
-import { useTheme } from 'next-themes';
 
 type GridBlockProps = {
 	width: number;
@@ -7,13 +7,13 @@ type GridBlockProps = {
 };
 
 function GridBlock({ width, height }: GridBlockProps) {
-	const { resolvedTheme } = useTheme();
+	const { theme } = useTheme();
 	return (
 		<motion.div
 			className='border border-foreground/5'
 			whileHover={{
 				backgroundColor:
-					resolvedTheme === 'light'
+					theme === 'light'
 						? 'rgba(230,230,230)'
 						: 'rgba(34, 39, 46)',
 			}}
@@ -22,7 +22,7 @@ function GridBlock({ width, height }: GridBlockProps) {
 				width,
 				height,
 				backgroundColor:
-					resolvedTheme === 'light'
+					theme === 'light'
 						? 'rgba(251,247,245)'
 						: 'rgba(13, 17, 22)',
 			}}

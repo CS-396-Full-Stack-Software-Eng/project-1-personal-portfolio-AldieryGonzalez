@@ -21,12 +21,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en' suppressHydrationWarning>
+		<html lang='en'>
 			<body className={inter.className}>
 				<Providers>
-					<div className='flex min-h-svh flex-col'>
+					<div className='flex min-h-svh flex-col bg-background text-foreground'>
 						<Navbar />
-						<main className='relative grow'>{children}</main>
+						<main className='relative grow text-foreground'>
+							{children}
+						</main>
 					</div>
 				</Providers>
 			</body>

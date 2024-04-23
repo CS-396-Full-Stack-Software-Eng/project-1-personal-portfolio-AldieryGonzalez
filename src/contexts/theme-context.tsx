@@ -1,27 +1,58 @@
-import { createContext, useState } from 'react';
+'use client';
+import { cn } from '@/lib/utils';
+import { createContext, useLayoutEffect, useState } from 'react';
 
 type ThemeProviderProps = {
 	children: React.ReactNode;
 };
-export const ThemeContext = createContext({});
+type ThemeContextType = {
+	theme: 'dark' | 'light';
+	toggleMode: () => void;
+	setTheme: (themeMode: 'dark' | 'light') => void;
+};
+export const ThemeContext = createContext({} as ThemeContextType);
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-	const [mode, setMode] = useState<'dark' | 'light'>('dark');
+	const [mode, setMode] = useState<'dark' | 'light'>(
+		localStorage.getItem('theme') as 'dark' | 'light',
+	);
+	useLayoutEffect(() => {
+		const theme = localStorage.getItem('theme');
+		if (!theme) {
+			const query = window.matchMedia('(prefers-color-scheme: dark)');
+			if (query.matches) {
+				setMode('dark');
+			}
+			query.addEventListener('change', (evt) =>
+				setMode(evt.matches ? 'dark' : 'light'),
+			);
+			return () => query.removeEventListener('change', () => {});
+		}
+		setMode(theme as 'dark' | 'light');
+	}, []);
+
 	const toggleMode = () => {
 		setMode((prev) => {
-			if (prev == 'dark') return 'light';
+			if (prev == 'dark') {
+				localStorage.setItem('theme', 'light');
+				return 'light';
+			}
+			localStorage.setItem('theme', 'dark');
 			return 'dark';
 		});
 	};
 	const setTheme = (themeMode: typeof mode) => {
+		localStorage.setItem('theme', themeMode);
 		setMode(themeMode);
 	};
 	const value = {
-		mode,
+		theme: mode,
 		setTheme,
 		toggleMode,
 	};
 	return (
-		<ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+		<ThemeContext.Provider value={value}>
+			<div className={cn(mode == 'dark' ? 'dark' : '')}>{children}</div>
+		</ThemeContext.Provider>
 	);
 }

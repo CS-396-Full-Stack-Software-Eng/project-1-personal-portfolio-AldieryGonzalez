@@ -1,5 +1,5 @@
+import { useTheme } from '@/hooks/useTheme';
 import { motion } from 'framer-motion';
-import { useTheme } from 'next-themes';
 
 type GridButtonProps = {
 	width: number;
@@ -17,7 +17,7 @@ function GridButton({
 	buttonIndex,
 	setSelected,
 }: GridButtonProps) {
-	const { resolvedTheme } = useTheme();
+	const { theme } = useTheme();
 	return (
 		<motion.button
 			className='cursor-pointer border border-foreground/5 text-4xl font-bold text-primary/5 focus:z-[5]'
@@ -31,7 +31,7 @@ function GridButton({
 			}}
 			whileHover={{
 				backgroundColor:
-					resolvedTheme === 'light'
+					theme === 'light'
 						? 'rgba(255,210,201)'
 						: 'rgba(44, 46, 36)',
 			}}
@@ -43,7 +43,7 @@ function GridButton({
 				width,
 				height,
 				backgroundColor:
-					resolvedTheme === 'light'
+					theme === 'light'
 						? selected.includes(buttonIndex)
 							? 'rgba(255,210,201)'
 							: 'rgba(255,238,229)'
