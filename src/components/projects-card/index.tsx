@@ -8,7 +8,7 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ reversed, ...props }: ProjectCardProps) => {
 	return (
-		<div className='group relative z-10 overflow-hidden rounded-lg border-2 border-foreground/25 shadow-lg'>
+		<div className='group relative z-10 overflow-hidden rounded-lg border border-foreground/25 shadow-lg backdrop-blur-2xl'>
 			<Link className='absolute inset-0 z-10' href='#'>
 				<span className='sr-only'>View Project</span>
 			</Link>

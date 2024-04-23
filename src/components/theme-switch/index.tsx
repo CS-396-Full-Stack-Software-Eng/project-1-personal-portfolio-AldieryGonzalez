@@ -2,7 +2,6 @@
 
 import { useTheme } from '@/hooks/useTheme';
 import { Moon, Sun, SunMoon } from 'lucide-react';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import ThemeSwitchButton from './atoms/switch-button';
 

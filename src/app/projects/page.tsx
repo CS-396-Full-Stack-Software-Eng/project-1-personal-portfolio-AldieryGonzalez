@@ -2,8 +2,8 @@ import ProjectCard from '@/components/projects-card';
 
 export default function Projects() {
 	return (
-		<div className='relative z-10 max-h-full w-full overflow-hidden p-12'>
-			<h1 className='z-10 mb-8 inline-block rounded-md border-2 border-foreground/20 bg-foreground/10 p-2 text-6xl bg-blend-color-burn shadow-lg'>
+		<div className='relative z-10 flex max-h-full w-full flex-col overflow-hidden bg-primary-foreground p-12'>
+			<h1 className='z-10 mb-8 inline-block self-center rounded-md border border-foreground/20 bg-foreground/10 p-2 text-6xl bg-blend-color-burn shadow-lg'>
 				Projects
 			</h1>
 			<div className='grid-cols-fill-200 md:grid-cols-fill-400 z-10 grid gap-6 sm:container'>
