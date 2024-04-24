@@ -1,11 +1,17 @@
 import { useTheme } from '@/hooks/useTheme';
-import { motion } from 'framer-motion';
+import {
+	motion,
+	MotionValue,
+	useMotionTemplate,
+	useTransform,
+} from 'framer-motion';
 
 type GridButtonProps = {
 	width: number;
 	height: number;
 	message: string;
 	selected: number[];
+	hue: MotionValue<number>;
 	buttonIndex: number;
 	setSelected: React.Dispatch<React.SetStateAction<number[]>>;
 };
@@ -13,11 +19,14 @@ function GridButton({
 	width,
 	height,
 	message,
+	hue,
 	selected,
 	buttonIndex,
 	setSelected,
 }: GridButtonProps) {
 	const { theme } = useTheme();
+	const activated = selected.length === message.length;
+	const color = useMotionTemplate`hsl(${hue}, 50%, 50%)`;
 	return (
 		<motion.button
 			className='cursor-pointer border border-foreground/5 text-4xl font-bold text-primary/5 focus:z-[5]'
@@ -42,8 +51,9 @@ function GridButton({
 			style={{
 				width,
 				height,
-				backgroundColor:
-					theme === 'light'
+				backgroundColor: activated
+					? color
+					: theme === 'light'
 						? selected.includes(buttonIndex)
 							? 'rgba(255,210,201)'
 							: 'rgba(255,238,229)'

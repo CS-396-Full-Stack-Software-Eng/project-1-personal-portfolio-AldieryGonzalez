@@ -1,3 +1,4 @@
+import { motion, MotionValue } from 'framer-motion';
 import GridBlock from '../atoms/grid-block';
 import GridButton from '../atoms/grid-button';
 
@@ -6,6 +7,7 @@ type GridRowProps = {
 	i: number;
 	blockWidth: number;
 	blockHeight: number;
+	hue: MotionValue<number>;
 	coordinatesArray: string[];
 	message: string;
 	selected: number[];
@@ -18,11 +20,12 @@ function GridRow({
 	blockHeight,
 	coordinatesArray,
 	message,
+	hue,
 	selected,
 	setSelected,
 }: GridRowProps) {
 	return (
-		<div key={i} className='flex'>
+		<motion.div key={i} className='flex'>
 			{row.map((_, j) => {
 				const coord = `${i}_${j}`;
 				const buttonIndex = coordinatesArray.indexOf(coord);
@@ -31,6 +34,7 @@ function GridRow({
 						<GridButton
 							key={coord}
 							width={blockWidth}
+							hue={hue}
 							buttonIndex={buttonIndex}
 							height={blockHeight}
 							message={message}
@@ -47,7 +51,7 @@ function GridRow({
 					/>
 				);
 			})}
-		</div>
+		</motion.div>
 	);
 }
 

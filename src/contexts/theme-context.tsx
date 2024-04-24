@@ -17,7 +17,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 	if (typeof window !== 'undefined') {
 		localTheme = localStorage.getItem('theme') as 'dark' | 'light';
 	}
-	const [mode, setMode] = useState<'dark' | 'light'>(localTheme ?? 'dark');
+	const [mode, setMode] = useState<'dark' | 'light'>(localTheme ?? 'light');
 	useLayoutEffect(() => {
 		const theme = localStorage.getItem('theme');
 		if (!theme) {
@@ -54,7 +54,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 	};
 	return (
 		<ThemeContext.Provider value={value}>
-			<div className={cn(mode == 'dark' ? 'dark' : '')}>{children}</div>
+			<div className={cn(mode === 'dark' ? 'dark' : '')}>{children}</div>
 		</ThemeContext.Provider>
 	);
 }

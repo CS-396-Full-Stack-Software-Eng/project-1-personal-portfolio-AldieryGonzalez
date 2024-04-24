@@ -34,9 +34,9 @@ const ProjectCard = ({
 				}}
 				width='400'
 			/>
-			<div className='bg-white/50 p-4 dark:bg-foreground/5'>
+			<div className='h-full bg-white/50 p-4 dark:bg-foreground/5'>
 				<h3 className='text-lg font-semibold md:text-xl'>{title}</h3>
-				<div className='line-clamp-2 text-sm text-gray-500 dark:text-gray-400'>
+				<div className='line-clamp-4 text-sm text-gray-500 dark:text-gray-400'>
 					{children}
 				</div>
 			</div>
